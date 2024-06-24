@@ -1,11 +1,19 @@
+using Producer.API.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+// Register ProducerService and ILogger
+builder.Services.AddSingleton<ProducerService>(); // Add as Singleton if it's appropriate for your use case
+builder.Services.AddLogging(config =>
+{
+    config.AddConsole();
+    // Add other logging configurations as needed
+});
 
 var app = builder.Build();
 
@@ -17,7 +25,6 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
 app.UseAuthorization();
 
 app.MapControllers();

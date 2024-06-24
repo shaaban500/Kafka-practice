@@ -20,7 +20,7 @@ namespace Consumer.App
         {
             var config = new ConsumerConfig
             {
-                GroupId = "test-consumer-group",
+                GroupId = "test-group",
                 BootstrapServers = "localhost:9092",
                 AutoOffsetReset = AutoOffsetReset.Earliest
             };
