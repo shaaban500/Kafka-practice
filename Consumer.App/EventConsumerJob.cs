@@ -7,7 +7,7 @@ using Microsoft.Extensions.Logging;
 
 namespace Consumer.App
 {
-    internal class EventConsumerJob : BackgroundService
+    public class EventConsumerJob : BackgroundService
     {
         private readonly ILogger<EventConsumerJob> _logger;
 
